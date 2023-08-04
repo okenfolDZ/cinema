@@ -21,7 +21,7 @@ public class Screening {
     @Column(nullable = false)
     private LocalDateTime screeningDate;
     @Column(nullable = false)
-    private Integer totalSeat;
+    private Integer totalSeats;
     @Column
     private String pictureUrl;
 
@@ -29,7 +29,7 @@ public class Screening {
 
         this.title = command.getTitle();
         this.screeningDate = command.getScreeningDate();
-        this.totalSeat = command.getTotalSeat();
+        this.totalSeats = command.getTotalSeats();
         this.pictureUrl = command.getPictureUrl();
     }
 }

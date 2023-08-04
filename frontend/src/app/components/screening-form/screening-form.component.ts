@@ -12,7 +12,7 @@ export class ScreeningFormComponent {
   screeningForm: FormGroup;
 
 
-  constructor(private ScreeningService: ScreeningService
+  constructor(private screeningService: ScreeningService
               , private formBuilder: FormBuilder) {
     this.screeningForm = formBuilder.group({
       title: ['', Validators.required],
@@ -29,5 +29,10 @@ export class ScreeningFormComponent {
   onSubmit() {
     const  data = this.screeningForm.value;
     console.log(data);
+    this.screeningService.addScreening(data).subscribe({
+      next: value => {},
+      error: err => console.log(err),
+      complete: () => console.log('Screening successfully added.')
+    })
   }
 }

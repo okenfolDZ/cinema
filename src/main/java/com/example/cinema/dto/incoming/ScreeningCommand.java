@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class ScreeningCommand {
     private String title;
     private LocalDateTime screeningDate;
-    private Integer totalSeat;
+    private Integer totalSeats;
     private String pictureUrl;
 
 }

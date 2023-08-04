@@ -1,7 +1,7 @@
 export interface ScreeningCommandModel {
   title: string;
   screeningDate: Date;
-  totalSeat: number;
+  totalSeats: number;
   pictureUrl: string;
 
 }

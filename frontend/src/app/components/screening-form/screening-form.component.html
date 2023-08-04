@@ -1,9 +1,22 @@
 <form [formGroup]="screeningForm">
 
   <div class="mb-3">
-    <label for="title" class="form-label">Title</label>
-    <input type="text" class="form-control" id="title" placeholder="Title" formControlName="title">
+    <label for="title" class="form-label"
+           [ngClass]="{'text-danger': (screeningForm.get('title')?.invalid && screeningForm.get('title')?.touched)
+    || (screeningForm.get('title')?.errors?.['serverError'])}"
+    >Title</label>
+    <input type="text" class="form-control" id="title" placeholder="Title" formControlName="title"
+           [ngClass]="{'border-danger': (screeningForm.get('title')?.invalid && screeningForm.get('title')?.touched)
+    || (screeningForm.get('title')?.errors?.['serverError'])}">
+
+    <small *ngIf="screeningForm.get('title')?.invalid && screeningForm.get('title')?.touched
+    && !screeningForm.get('title')?.errors?.['serverError']">Please enter a valid screening name.</small>
+    <small *ngIf="screeningForm.get('title')?.errors?.['serverError']">
+      {{screeningForm.get('title')?.errors?.['serverError']}}
+    </small>
   </div>
+
+
 
   <div class="mb-3">
     <label for="screening-date" class="form-label">Screening Date</label>
