@@ -26,7 +26,7 @@ public class ScreeningService {
     }
 
     public List<ScreeningListItem> getAllScreenings() {
-        return screeningRepository.findAll().stream().map(ScreeningListItem::new)
+        return screeningRepository.findAllOrderByScreeningDate().stream().map(ScreeningListItem::new)
                 .collect(Collectors.toList());
     }
 }
