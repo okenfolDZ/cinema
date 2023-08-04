@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ScreeningService} from "../../services/screening.service";
 import {validationHandler} from "../../utils/validation-handler";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-screening-form',
@@ -14,7 +15,7 @@ export class ScreeningFormComponent {
 
 
   constructor(private screeningService: ScreeningService
-              , private formBuilder: FormBuilder) {
+              , private formBuilder: FormBuilder, private router: Router) {
     this.screeningForm = formBuilder.group({
       title: ['', Validators.required],
       screeningDate: ['', Validators.required],
@@ -29,7 +30,10 @@ export class ScreeningFormComponent {
     this.screeningService.addScreening(data).subscribe({
       next: value => {},
       error: err => {console.log(err); validationHandler(err, this.screeningForm)},
-      complete: () => console.log('Screening successfully added.')
+      complete: () => {
+        console.log('Screening successfully added.');
+      this.router.navigate(['screening-list'])}
+
     })
   }
 }
