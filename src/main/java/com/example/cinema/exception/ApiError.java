@@ -9,7 +9,7 @@
  * Any dispute or claim arising out of the breach of these provisions shall be governed by and construed in accordance with the laws of Hungary.
  */
 
-package exception;
+package com.example.cinema.exception;
 
 public class ApiError {
     private String errorCode;

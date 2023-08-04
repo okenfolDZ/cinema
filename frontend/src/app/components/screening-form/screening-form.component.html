@@ -1,0 +1,26 @@
+<form [formGroup]="screeningForm">
+
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" placeholder="Title" formControlName="title">
+  </div>
+
+  <div class="mb-3">
+    <label for="screening-date" class="form-label">Screening Date</label>
+    <input type="datetime-local" class="form-control" id="screening-date" placeholder="screening date" formControlName="screeningDate">
+  </div>
+
+  <div class="mb-3">
+    <label for="total-seats" class="form-label">Total Seats</label>
+    <input type="number" class="form-control" id="total-seats" placeholder="total seats" formControlName="totalSeats">
+  </div>
+
+  <div class="mb-3">
+    <label for="picture-url" class="form-label">Picture Url</label>
+    <input type="text" class="form-control" id="picture-url" placeholder="picture url" formControlName="pictureUrl">
+  </div>
+
+  <button  type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+
+
+</form>
